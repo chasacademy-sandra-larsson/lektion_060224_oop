@@ -1,16 +1,18 @@
+/* Old school sättet att skapa "klasser på" 
+   Det är även så här det ser ut under huven
+   med den moderna ES6 class syntaxen då
+   JavaScript är ett prototypbaserat programmeringsspråk
+*/
 
-// Konstrukturfunktionen 
+// Konstruktorfunktion som används för att skapa
+// nya instanser/objekt av SocialMediaProfile
 function SocialMediaProfile(username) {
-    this.username = username;
-    this.friends = [];
-    this.posts = [];
-
-    // this.test = function() {
-    //     return "test test";
-    // }
+    this.username = username; //username sätts till det värdet vi skickat med när vi skapar kallar på konstruktorfunktionen
+    this.friends = []; //array som innehåller användarens vänner - tom när instansen/objektet skapas
+    this.posts = [];  // array som innehåller användarens posts - tom när instansen/objektet skapas
 }
 
-// Metoder
+// Metoder som alla nya instanser/objekt får tillgång till via prototype
 SocialMediaProfile.prototype.addFriend = function(friend) {
     this.friends.push(friend)
 }
@@ -25,6 +27,7 @@ SocialMediaProfile.prototype.displayProfile = function() {
             Posts: ${this.posts.join(", ")}`
 }
 
+// Här skapar vi en ny instans av SocialMediaProfile och anropar metoderna addFriend och postMessage på objektet
 const myProfile = new SocialMediaProfile("coolUser123");
 myProfile.addFriend("Torsten");
 myProfile.addFriend("Stina");
